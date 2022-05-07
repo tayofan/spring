@@ -37,14 +37,20 @@ public class MemberDeleteServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		out.println("<script>");
-		out.println("alert(" + result + ")");
+		out.println("alert('" + result + "')");
 		out.println("location.href='list'");
 		out.println("</script>");
+		
+//		String url = request.getContextPath() + "/member/list";
+//		String id = request.getParameter("id");
+//		
+//		dataSource.getMemberList().remove(id);
+//		
+//		response.sendRedirect(url);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
 }

@@ -27,6 +27,7 @@ public class MemberUpdateServlet extends HttpServlet {
 		String new_id = request.getParameter("new_id");
 		String new_pwd = request.getParameter("new_pwd");
 		//String url = request.getContextPath()+"/member/list";
+		//String url = request.getContextPath()+"/member/detail?id=" + id;
 		String result = "";
 		
 		//처리
@@ -50,10 +51,8 @@ public class MemberUpdateServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		out.println("<script>");
-		out.println("alert(" + result + ")");
+		out.println("alert('" + result + "')");
 		out.println("location.href='list'");
-		out.println("</script>");
-		
+		out.println("</script>");		
 	}
-
 }

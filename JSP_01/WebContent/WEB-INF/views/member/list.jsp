@@ -45,6 +45,7 @@ th, td{
 <body>
 	<div class="container mt-3">
 	<input type="button" value="가입하기" onclick="location.href='regist'">
+	<input type="button" value="게시판가기" onclick="location.href='<%=request.getContextPath() %>/board/list'">
 	
 	<table class="table table-bordered center">
 		<thead class="table-success">

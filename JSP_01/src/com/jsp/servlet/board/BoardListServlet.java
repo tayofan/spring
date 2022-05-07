@@ -1,30 +1,36 @@
-package com.jsp.servlet;
+package com.jsp.servlet.board;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jsp.board.sort.BaordBnoComparator;
 import com.jsp.dataSource.DataSource;
-import com.jsp.vo.Member;
+import com.jsp.vo.Board;
 
-/**
- * Servlet implementation class MemberDetailServlet
- */
-@WebServlet("/member/detail")
-public class MemberDetailServlet extends HttpServlet {
+@WebServlet("/board/list")
+public class BoardListServlet extends HttpServlet {
 	private DataSource dataSource = DataSource.getInstance();
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url="/WEB-INF/views/member/detail.jsp";
-		String id = request.getParameter("id");
+		String url = "/WEB-INF/views/board/list.jsp";
 		
-		//Member member = memberService.detail(id);
-		Member member = dataSource.getMemberList().get(id);
+		Map<String, Board> boardMap = dataSource.getBoardList();
+		List<Board> boardList = new ArrayList<Board>(boardMap.values());
 		
-		request.setAttribute("member", member);
+		Collections.sort(boardList, new BaordBnoComparator());
+		
+		request.setAttribute("boardList", boardList);
 		request.getRequestDispatcher(url).forward(request, response);
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

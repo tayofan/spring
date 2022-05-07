@@ -28,7 +28,7 @@ public class MemberRegistServlet extends HttpServlet {
 		//입력
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
-		//String url = request.getContextPath()+"/member/list";
+		String url = request.getContextPath()+"/board/list";
 		String result = "";
 		
 		//처리
@@ -53,12 +53,11 @@ public class MemberRegistServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		out.println("<script>");
-		out.println("alert(" + result + ")");
-		out.println("location.href='list'");
-		out.println("</script>");
-		
+		out.println("alert('" + result + "')");
+		//out.println("location.href='list'");
+		out.println("location.href='" + url + "'");
+		out.println("</script>");	
 	}
-
 }
 
 

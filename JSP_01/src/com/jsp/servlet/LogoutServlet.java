@@ -6,25 +6,20 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-import com.jsp.dataSource.DataSource;
-import com.jsp.vo.Member;
-
-/**
- * Servlet implementation class MemberDetailServlet
- */
-@WebServlet("/member/detail")
-public class MemberDetailServlet extends HttpServlet {
-	private DataSource dataSource = DataSource.getInstance();
+@WebServlet("/member/logout")
+public class LogoutServlet extends HttpServlet {
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url="/WEB-INF/views/member/detail.jsp";
-		String id = request.getParameter("id");
+		HttpSession session = request.getSession();
+		String url = request.getContextPath() + "/board/list";
 		
-		//Member member = memberService.detail(id);
-		Member member = dataSource.getMemberList().get(id);
+		if(session.getAttribute("member") != null) {
+			session.removeAttribute("member");
+		}
 		
-		request.setAttribute("member", member);
-		request.getRequestDispatcher(url).forward(request, response);
+		response.sendRedirect(url);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
