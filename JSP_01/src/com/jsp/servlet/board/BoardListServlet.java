@@ -21,7 +21,7 @@ public class BoardListServlet extends HttpServlet {
 	private DataSource dataSource = DataSource.getInstance();
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/WEB-INF/views/board/list.jsp";
+		String url = "/WEB-INF/views/board/starter.jsp";
 		
 		Map<String, Board> boardMap = dataSource.getBoardList();
 		List<Board> boardList = new ArrayList<Board>(boardMap.values());

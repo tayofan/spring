@@ -58,13 +58,13 @@
 			<hr>
 			
 			<label for="email"><b>아이디</b></label>
-			<input type="text" placeholder="아이디 입력" name="id" id="email" required>
+			<input type="text" placeholder="아이디 입력" name="id" id="email" pattern="^([a-z0-9_]){6,50}$" required>
 			
 			<label for="psw"><b>비밀번호</b></label>
-			<input type="password" placeholder="비밀번호 입력" name="pwd" id="psw" required>
+			<input type="password" placeholder="비밀번호 입력" name="pwd" id="psw" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" required>
 			
 			<label for="psw-repeat"><b>비밀번호 확인</b></label>
-			<input type="password" placeholder="비밀번호 확인" name="psw-repeat" id="psw-repeat" required>
+			<input type="password" placeholder="비밀번호 확인" name="psw-repeat" id="psw-repeat" pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$" required>
 			<hr>
 
 			<button type="submit" class="registerbtn">가입하기</button>

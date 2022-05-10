@@ -35,7 +35,6 @@
   width: 150px; /* adjust as needed (as long as it doesn't break the topnav) */
 }
 </style>
-
 </head>
 <body>
 	<div class="topnav">
@@ -67,7 +66,7 @@
 	
 	<div class="container mt-3">
 		
-		<table class="table table-hover">
+<%-- 		<table class="table table-hover">
 			<thead class="table-success">
 				<tr>
 					<th class="txt_center" style="width: 8%;">번호</th>
@@ -108,8 +107,63 @@
 			}
 %>
 			</tbody>
-		</table>
+		</table> --%>
+		<table class="table table-hover text-nowrap">
+                  <thead>
+                    <tr>
+                      <th>번호</th>
+                      <th>제목</th>
+                      <th>작성자</th>
+                      <th>작성일</th>
+                      <th>조회수</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                  
+<%
+			List<Board> boardList = (List<Board>)request.getAttribute("boardList");
+			SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+			String today = format.format(new Date());
+			if(boardList != null) for(Board board : boardList){
+				pageContext.setAttribute("board", board);
+		%>
+				<tr>
+					<td class="txt_center">${board.bno }</td>
+					<td class="board_detail" style="cursor:pointer;" onclick="location.href='detail?bno=${board.bno}&viewCnt=${board.viewCnt}';">${board.title }</td>
+					<td class="txt_center">${board.writer }</td>
+ 			<% 
+				if(today.equals(board.getDateYMD())){
+			%>
+					<td class="txt_center dateHM">${board.dateHM }</td>
+			<% 
+				}else{
+			%>
+					<td class="txt_center dateYMD">${board.dateYMD }</td>
+ 			<%					
+				}
+			%>
+					
+					
+					<td class="txt_center">${board.viewCnt }</td>
+				</tr>
+<%
+			}
+%>                   	
+                  </tbody>
+                </table>
+<%
+		if(member != null){
+%>
 		<input type="button" value="등록하기" onclick="location.href='regist'">
+<% 
+		}else{
+%>
+		<input type="button" value="등록하기" onclick="alert('로그인을 해주세요!!!!!!!!')">
+<%			
+		}
+%>
+		
+		
 	</div>
 </body>
 

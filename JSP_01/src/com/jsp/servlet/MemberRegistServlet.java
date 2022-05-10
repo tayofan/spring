@@ -18,7 +18,7 @@ public class MemberRegistServlet extends HttpServlet {
 	private DataSource dataSource = DataSource.getInstance();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url="/WEB-INF/views/member/regist.jsp";
+		String url="/WEB-INF/views/member/regist2.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 

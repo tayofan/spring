@@ -19,7 +19,7 @@ public class BoardRegistServlet extends HttpServlet {
 	private DataSource dataSource = DataSource.getInstance();
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String url = "/WEB-INF/views/board/regist.jsp";
+		String url = "/WEB-INF/views/board/regist2.jsp";
 		request.getRequestDispatcher(url).forward(request, response);
 	}
 

@@ -95,7 +95,7 @@
 			
 			<div class="container content" style="padding: 20px 20px;">
 				<label for="comment">내용:</label><br>
-				<textarea rows="5" cols="40" name="content">${board.content }</textarea><br>
+				<textarea rows="5" cols="40" name="content" style="width: 100%; height: 400px; resize: none;">${board.content }</textarea><br>
 				<input type="submit" value="수정하기">
 			</div>
 				
