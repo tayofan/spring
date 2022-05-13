@@ -19,9 +19,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/bootstrap/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="<%=request.getContextPath() %>/resources/bootstrap/dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="<%=request.getContextPath()%>/resources/bootstrap/dist/css/adminlte.min.css">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -280,11 +280,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 								<i class="fas fa-search"></i>
 							</button>
 						</div>
-<% 
+<%
 	Member member = (Member)session.getAttribute("member");
 	if(member != null){
 %>
-						<button type="button" onclick="location.href='<%=request.getContextPath() %>/member/logout'" class="btn-xs btn-default">
+						<button type="button" onclick="location.href='<%=request.getContextPath()%>/member/logout'" class="btn-xs btn-default">
 							로그아웃
 						</button>
 						<button type="button" onclick="location.href='regist'" class="btn-xs btn-default">
@@ -292,21 +292,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 						</button>
 		
 
-<% 
-	}else{
-%>
+<%
+			}else{
+		%>
 		
-						<button type="button" onclick="location.href='<%=request.getContextPath() %>/member/login'" class="btn-xs btn-default">
+						<button type="button" onclick="location.href='<%=request.getContextPath()%>/member/login'" class="btn-xs btn-default">
 							로그인
 						</button>
-						<button type="button" onclick="location.href='<%=request.getContextPath() %>/member/regist'" class="btn-xs btn-default">
+						<button type="button" onclick="location.href='<%=request.getContextPath()%>/member/regist'" class="btn-xs btn-default">
 							회원가입
 						</button>
 	    
 		
-<%		
-	}
-%>
+<%
+	    			}
+	    		%>
 					</div>
 				</div>
 			</div>
@@ -325,12 +325,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <tbody>
                   
 <%
-			List<Board> boardList = (List<Board>)request.getAttribute("boardList");
-			SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-			String today = format.format(new Date());
-			if(boardList != null) for(Board board : boardList){
-				pageContext.setAttribute("board", board);
-		%>
+                  	List<Board> boardList = (List<Board>)request.getAttribute("boardList");
+                                    	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+                                    	String today = format.format(new Date());
+                                    	if(boardList != null) for(Board board : boardList){
+                                    		pageContext.setAttribute("board", board);
+                  %>
 				<tr>
 					<td class="txt_center">${board.bno }</td>
 					<td class="board_detail" style="cursor:pointer;" onclick="location.href='detail?bno=${board.bno}&viewCnt=${board.viewCnt}';">${board.title }</td>

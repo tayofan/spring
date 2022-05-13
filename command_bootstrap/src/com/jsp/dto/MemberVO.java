@@ -9,7 +9,7 @@ public class MemberVO {
 	private String phone;
 	private String email;
 	private String picture;
-	private Date reDate;
+	private Date regDate;
 	private String authority;
 	private int enabled;
 	private String register;
@@ -58,11 +58,11 @@ public class MemberVO {
 	public void setPicture(String picture) {
 		this.picture = picture;
 	}
-	public Date getReDate() {
-		return reDate;
+	public Date getRegDate() {
+		return regDate;
 	}
-	public void setReDate(Date reDate) {
-		this.reDate = reDate;
+	public void setRegDate(Date regDate) {
+		this.regDate = regDate;
 	}
 	public String getAuthority() {
 		return authority;
@@ -91,7 +91,7 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [id=" + id + ", pwd=" + pwd + ", name=" + name + ", phone=" + phone + ", email=" + email
-				+ ", picture=" + picture + ", reDate=" + reDate + ", authority=" + authority + ", enabled=" + enabled
+				+ ", picture=" + picture + ", regDate=" + regDate + ", authority=" + authority + ", enabled=" + enabled
 				+ ", register=" + register + ", address=" + address + "]";
 	}
 	

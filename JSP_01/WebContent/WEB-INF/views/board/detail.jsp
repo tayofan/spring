@@ -42,26 +42,26 @@
 <div class="topnav">
 	  <a class="active" href="<%=request.getContextPath()%>/board/list">Home</a>
 	  <div class="login-container">
-<% 
+<%
 	Member member = (Member)session.getAttribute("member");
 	if(member != null){
 %>
 		<button type="button" onclick="location.href='<%=request.getContextPath()%>/member/logout'">로그아웃</button>
 
-<% 
+<%
 	}else{
 %>
 		
-	    <form action="<%= request.getContextPath()%>/member/login" method="post">
+	    <form action="<%=request.getContextPath()%>/member/login" method="post">
 	      <button type="button" onclick="location.href='<%=request.getContextPath()%>/member/regist'">회원가입</button>
 	      <input type="text" placeholder="아이디" name="id">
 	      <input type="password" placeholder="비밀번호" name="pwd">
 	      <button type="submit">로그인</button>
 	    </form>
 		
-<%		
-	}
-%>
+<%
+			}
+		%>
 	  </div>
 	</div>
 	
@@ -94,12 +94,11 @@
 			<label for="comment">내용:</label><br>
 			<textarea rows="5" cols="40" name="content" style="width: 100%; height: 400px; resize: none;" disabled="disabled">${board.content }</textarea><br>
 			
-<% 
-
-		Board board = (Board)request.getAttribute("board");
-		if(member != null){
-			if(board.getWriter().equals(member.getId())){
-%>
+<%
+				Board board = (Board)request.getAttribute("board");
+						if(member != null){
+					if(board.getWriter().equals(member.getId())){
+			%>
 			<input type="button" onclick="location.href='update?bno=${board.bno}'" value="수정">
 			<input type="button" onclick="location.href='delete?bno=${board.bno}'" value="삭제">
 

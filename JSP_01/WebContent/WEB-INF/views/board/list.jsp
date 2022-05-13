@@ -40,26 +40,26 @@
 	<div class="topnav">
 	  <a class="active" href="<%=request.getContextPath()%>/board/list">Home</a>
 	  <div class="login-container">
-<% 
+<%
 	Member member = (Member)session.getAttribute("member");
 	if(member != null){
 %>
 		<button type="button" onclick="location.href='<%=request.getContextPath()%>/member/logout'">로그아웃</button>
 
-<% 
+<%
 	}else{
 %>
 		
-	    <form action="<%= request.getContextPath()%>/member/login" method="post">
+	    <form action="<%=request.getContextPath()%>/member/login" method="post">
 	      <button type="button" onclick="location.href='<%=request.getContextPath()%>/member/regist'">회원가입</button>
 	      <input type="text" placeholder="아이디" name="id">
 	      <input type="password" placeholder="비밀번호" name="pwd">
 	      <button type="submit">로그인</button>
 	    </form>
 		
-<%		
-	}
-%>
+<%
+			}
+		%>
 	  </div>
 	</div>
 	
@@ -121,12 +121,12 @@
                   <tbody>
                   
 <%
-			List<Board> boardList = (List<Board>)request.getAttribute("boardList");
-			SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
-			String today = format.format(new Date());
-			if(boardList != null) for(Board board : boardList){
-				pageContext.setAttribute("board", board);
-		%>
+                  	List<Board> boardList = (List<Board>)request.getAttribute("boardList");
+                                    	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
+                                    	String today = format.format(new Date());
+                                    	if(boardList != null) for(Board board : boardList){
+                                    		pageContext.setAttribute("board", board);
+                  %>
 				<tr>
 					<td class="txt_center">${board.bno }</td>
 					<td class="board_detail" style="cursor:pointer;" onclick="location.href='detail?bno=${board.bno}&viewCnt=${board.viewCnt}';">${board.title }</td>

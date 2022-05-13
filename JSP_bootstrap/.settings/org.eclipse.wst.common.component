@@ -2,6 +2,8 @@
     <wb-module deploy-name="JSP_bootstrap">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/res"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <property name="context-root" value="JSP_bootstrap"/>
         <property name="java-output-path" value="/JSP_bootstrap/build/classes"/>
     </wb-module>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Board-Mapper">
+	<select id="selectBoardList" resultType="board">
+		select
+		*
+		from
+		board
+		order by bno desc
+	</select>
+	
+	<select id="selectBoardListCount" resultType="int">
+		select
+		count(*)
+		from
+		board
+		order by bno desc
+	</select>
+	
+	<select id="selectBoardDetail" resultType="board">
+		select
+		*
+		from
+		board
+		where bno = #{bno}
+	</select>
+</mapper> 
