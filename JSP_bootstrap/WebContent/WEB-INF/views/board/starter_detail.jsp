@@ -5,6 +5,8 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -282,7 +284,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 							<div class="col-2">작성자</div>
 							<div class="col-4">${board.writer }</div>
 							<div class="col-2">작성일</div>
-							<div class="col-4">${board.dateYMD}</div>
+							<div class="col-4"><fmt:formatDate value="${board.regDate }" pattern="yyyy/MM/dd HH:mm"/></div>
 						</div>
 
 						<div class='row'>

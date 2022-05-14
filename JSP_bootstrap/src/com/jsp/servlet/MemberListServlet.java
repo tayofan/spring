@@ -25,7 +25,7 @@ public class MemberListServlet extends HttpServlet {
 	private MemberService memberService = new MemberServiceImpl();
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String url = "/WEB-INF/views/member/list.jsp";
+		String url = "/WEB-INF/views/member/list2.jsp";
 		
 		String pageParam = request.getParameter("page");
 		String perPageNumParam = request.getParameter("perPageNum");

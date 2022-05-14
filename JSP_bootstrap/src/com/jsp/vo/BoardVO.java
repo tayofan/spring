@@ -1,6 +1,5 @@
 package com.jsp.vo;
 
-import java.text.SimpleDateFormat;
 import java.util.Comparator;
 import java.util.Date;
 
@@ -10,8 +9,6 @@ public class BoardVO {
 	private String writer;
 	private String content;
 	private Date regdate;
-	private String dateYMD;
-	private String dateHM;
 	private int viewCnt;
 	private Date updatedate;
 	private String dist;
@@ -30,8 +27,6 @@ public class BoardVO {
 	public void setUpdatedate(Date updatedate) {
 		this.updatedate = updatedate;
 	}
-	SimpleDateFormat formatYMD = new SimpleDateFormat("yyyy/MM/dd");
-	SimpleDateFormat formatHM = new SimpleDateFormat("HH:mm");	
 	
 	public BoardVO() {}
 	
@@ -43,8 +38,6 @@ public class BoardVO {
 		this.content = content;
 		this.regdate = regdate;
 		this.viewCnt = viewCnt;
-		this.dateYMD = formatYMD.format(regdate); 
-		this.dateHM = formatHM.format(regdate); 
 	}
 	public int getBno() {
 		return bno;
@@ -73,25 +66,11 @@ public class BoardVO {
 	public Date getRegDate() {
 		return regdate;
 	}
+	
 	public void setRegDate(Date regDate) {
 		this.regdate = regDate;
-		this.dateYMD = formatYMD.format(regDate);
-		this.dateHM = formatHM.format(regDate);
 	}
-	
-	public void setYMDHM() {
-		this.dateYMD = formatYMD.format(this.regdate);
-		this.dateHM = formatHM.format(this.regdate);
-	}
-	
-	public String getDateYMD() {
-		return dateYMD;
-	}
-	
-	public String getDateHM() {
-		return dateHM;
-	}
-	
+
 	public int getViewCnt() {
 		return viewCnt;
 	}

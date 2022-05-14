@@ -32,8 +32,6 @@ public class BoardDetailServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 		System.out.println(board.getRegDate());
-		System.out.println(board.getDateYMD());
-		System.out.println(board.getDateHM());
 //		//처리
 //		if(request.getParameter("viewCnt") != null) {
 //			viewCnt = Integer.parseInt(request.getParameter("viewCnt"));

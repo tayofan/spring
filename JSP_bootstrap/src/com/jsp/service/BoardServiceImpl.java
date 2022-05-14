@@ -1,5 +1,6 @@
 package com.jsp.service;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -30,6 +31,8 @@ public class BoardServiceImpl implements BoardService {
 			session.rollback();
 			e.printStackTrace();
 			throw e;
+		} finally {
+			if(session!=null) session.close();
 		}
 		return boardList;
 	}
@@ -46,6 +49,8 @@ public class BoardServiceImpl implements BoardService {
 			session.rollback();
 			e.printStackTrace();
 			throw e;
+		} finally {
+			if(session!=null) session.close();
 		}
 		return boardList;
 	}
@@ -62,6 +67,8 @@ public class BoardServiceImpl implements BoardService {
 			session.rollback();
 			e.printStackTrace();
 			throw e;
+		} finally {
+			if(session!=null) session.close();
 		}
 		return board;
 	}
@@ -87,6 +94,8 @@ public class BoardServiceImpl implements BoardService {
 			session.rollback();
 			e.printStackTrace();
 			throw e;
+		} finally {
+			if(session!=null) session.close();
 		}
 		return dataMap;
 	}
