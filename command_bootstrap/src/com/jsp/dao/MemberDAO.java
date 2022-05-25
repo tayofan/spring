@@ -13,6 +13,15 @@ public interface MemberDAO {
 	List<MemberVO> selectMemberList(SqlSession session) throws Exception;
 	List<MemberVO> selectMemberList(SqlSession session,Criteria cri) throws Exception;
 	
-	
 	int selectMemberListCount(SqlSession session) throws Exception;
+	
+	MemberVO selectMemberById(SqlSession session, String id) throws Exception;
+	
+	void insertMember(SqlSession session, MemberVO member) throws Exception; 
+	
+	void updateMember(SqlSession session, MemberVO member) throws Exception;
+
+	void deleteMember(SqlSession session, String id) throws Exception;
+	
+	void enabledMember(SqlSession session, String id, int enabled) throws Exception;
 }

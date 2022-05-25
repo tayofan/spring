@@ -1,10 +1,10 @@
 package com.jsp.command;
 
 public class Criteria {
-	private int page = 1;
-	private int perPageNum = 10;
+	private int page = 1; // 현재 페이지
+	private int perPageNum = 10; // 한페이지당 보여주는 리스트 수
 	
-	private int startRowNum = 0;
+	private int startRowNum = 0; // 시작 리스트 번호???
 
 	public int getPage() {
 		return page;
@@ -38,6 +38,11 @@ public class Criteria {
 
 	public void setStartRowNum() {
 		this.startRowNum = (this.page-1)*perPageNum;
+	}
+
+	@Override
+	public String toString() {
+		return "Criteria [page=" + page + ", perPageNum=" + perPageNum + ", startRowNum=" + startRowNum + "]";
 	}
 	
 	
