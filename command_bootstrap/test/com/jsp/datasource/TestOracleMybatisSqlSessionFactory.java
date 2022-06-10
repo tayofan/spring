@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.jsp.dto.MemberVO;
+import com.jsp.dto.NoticeVO;
 
 
 
@@ -41,6 +42,13 @@ public class TestOracleMybatisSqlSessionFactory {
 	public void testMemberList()throws Exception{
 		List<MemberVO> memberList = session.selectList("Member-Mapper.selectMemberList");
 		Assert.assertEquals(7, memberList.size());
+	}
+	
+	@Test
+	public void testNotice() throws Exception{
+		NoticeVO notice = session.selectOne("Notice-Mapper.selectNoticeByNno",53);
+		System.out.println(notice.getTitle());
+		Assert.assertNotNull(notice);
 	}
 	
 	@After

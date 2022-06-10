@@ -26,10 +26,10 @@ public class HandlerMapper {
 		
 		while(it.hasNext()) {
 			String command = it.next(); //key -> url
-			System.out.println(command);
+			// command는 properties의 key
 			
 			String actionClassName = rbHome.getString(command);
-			System.out.println(actionClassName);
+			// actionClassName는 properties의 value값
 			// 매개변수로 전달한 키값에 해당하는 value를 문자열로 반환합니다
 			
 			try {

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<bean id="imgPath" class="java.lang.String">
+		<constructor-arg value="${summernote.img"/>
+	</bean>
+	
+	<bean id="picturePath" class="java.lang.String">
+		<constructor-arg value="${member.picture.upload}"/>
+	</bean>
+	
+	<bean id="fileUploadPath" class="java.lang.String">
+		<constructor-arg value="${pds.upload}"/>
+	</bean>
+	
+	<!-- Repository Old DAO-->
+	<bean id = "memberDAO" class="com.jsp.dao.MemberDAOImpl" />
+	<bean id = "searchMemberDAO" class="com.jsp.dao.SearchMemberDAOImpl" />
+	<bean id = "menuDAO" class="com.jsp.dao.MenuDAOImpl" />	
+	<bean id = "noticeDAO" class="com.jsp.dao.NoticeDAOImpl" />
+	<bean id = "boardDAO" class="com.jsp.dao.BoardDAOImpl" />
+	<bean id = "replyDAO" class="com.jsp.dao.ReplyDAOImpl" />
+	<bean id = "pdsDAO" class="com.jsp.dao.PdsDAOImpl" />
+	<bean id = "attachDAO" class="com.jsp.dao.AttachDAOImpl" />
+	
+	<!-- new DAO -->
+	<bean id="memberDAOBean" class="kr.or.ddit.dao.MemberDAOBeanImpl"
+		p:session-ref="sqlSession"
+		p:searchMemberDAO-ref="searchMemberDAO"
+	/>
+	<bean id="menuDAOBean" class="kr.or.ddit.dao.MenuDAOBeanImpl"
+		p:session-ref="sqlSession"
+		p:menuDAO-ref="menuDAO"
+	/>
+	<bean id="noticeDAOBean" class="kr.or.ddit.dao.NoticeDAOBeanImpl"
+		p:session-ref="sqlSession"
+		p:noticeDAO-ref="noticeDAO"
+	/>
+	<bean id="boardDAOBean" class="kr.or.ddit.dao.BoardDAOBeanImpl"
+		p:session-ref="sqlSession"
+		p:boardDAO-ref="boardDAO"
+	/>
+	<bean id="replyDAOBean" class="kr.or.ddit.dao.ReplyDAOBeanImpl" 
+		p:session-ref="sqlSession"
+		p:replyDAO-ref="replyDAO"
+	/>
+	<bean id="pdsDAOBean" class="kr.or.ddit.dao.PdsDAOBeanImpl" 
+		p:session-ref="sqlSession"
+		p:pdsDAO-ref="pdsDAO"
+	/>
+	<bean id="attachDAOBean" class="kr.or.ddit.dao.AttachDAOBeanImpl"  
+		p:session-ref="sqlSession"
+		p:attachDAO-ref="attachDAO"
+	/>
+	
+	<!-- Service -->
+	<bean id="memberService" class="kr.or.ddit.service.MemberServiceImpl"
+		p:memberDAOBean-ref="memberDAOBean"
+	/>
+	<bean id="menuService" class="kr.or.ddit.service.MenuServiceImpl"
+		p:menuDAO-ref="menuDAOBean"
+	/>
+	<bean id="noticeService" class="kr.or.ddit.service.NoticeServiceImpl"
+		p:noticeDAO-ref="noticeDAOBean"
+	/>
+	<bean id="boardService" class="kr.or.ddit.service.BoardServiceImpl"
+		p:boardDAOBean-ref="boardDAOBean"
+		p:replyDAOBean-ref="replyDAOBean"
+	/>
+	<bean id="pdsService" class="kr.or.ddit.service.PdsServiceImpl"
+		p:pdsDAOBean-ref="pdsDAOBean"
+		p:attachDAOBean-ref="attachDAOBean"
+	/>
+	<bean id="replyService" class="kr.or.ddit.service.ReplyServiceImpl"
+		p:memberDAOBean-ref="memberDAOBean"
+		p:replyDAOBean-ref="replyDAOBean"
+	/>
+</beans>

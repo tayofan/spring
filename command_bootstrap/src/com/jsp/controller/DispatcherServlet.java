@@ -16,6 +16,7 @@ public class DispatcherServlet extends HttpServlet {
 	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
+		//init의 역할을 tomcat이 실행되
 		String path = config.getInitParameter("url.properties");
 		
 		try {
